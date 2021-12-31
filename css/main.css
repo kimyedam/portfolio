@@ -1,0 +1,366 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+body{font-family: 'Roboto', 'Noto Sans KR', sans-serif;}
+
+/* 커버 */
+.cover{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 2;
+    display: none;
+}
+
+/* 전체메뉴 */
+.menu_wrap{
+    position: fixed;
+    right: -100%;
+    top: 0;
+    width: calc(100% - 70%);
+    height: 100%;
+    background:rgba(25,25,25,0.9);
+    z-index: 3;
+}
+.menu_wrap .menu{
+    width: 100%;
+    padding: 100px;
+    box-sizing: border-box;
+}
+.menu_wrap .menu li{
+    line-height: 4em;
+    margin-bottom: 50px;
+}
+.menu_wrap .menu li a{
+    font-size: 4em;
+    color:#fff;
+    font-weight: 700;
+}
+.menu_wrap .menu li a:hover{
+    text-shadow: 5px 5px 1px darkseagreen;
+}
+.menu_wrap .menu li:last-child{
+    margin-top: 180px;
+    color:#fff;
+}
+.menu_wrap .btn_close{
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    background: url("../images/ico-close-white-md.png")no-repeat;
+    width: 36px;
+    height: 36px;
+    text-indent: -99999px;
+    border:none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.menu_wrap .btn_close:hover{
+    transform: rotate(360deg);
+}
+
+/* ---------------- 헤더 ---------------- */
+header{
+    width: 100%;
+    padding:15px 25px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+header.on{
+    background: rgba(25,25,25,0.1);
+}
+header h1 a{
+    display: block;
+    width: 51px;
+    height: 62px;
+    background: url("../images/logo.png")no-repeat;
+    background-size: 51px;
+    text-indent: -99999px;
+}
+
+header .m_btn{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 85px;
+    top:25px;
+    z-index: 5;
+}
+header .m_btn .line{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+header .m_btn .line span{
+    display: block;
+    width: 20px;
+    height: 4px;
+    background: #71c7d5;;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+header .m_btn .line span::before{
+    content: '';
+    width: 40px;
+    height: 4px;
+    background: #71c7d5;;
+    position: absolute;
+    left: 0;
+    top: -14px;
+    transition: all 0.3s ease;
+}
+header .m_btn .line span::after{
+    content: '';
+    width: 40px;
+    height: 4px;
+    background: #71c7d5;
+    position: absolute;
+    left: 0;
+    top: 14px;
+    transition: all 0.3s ease;
+}
+header .m_btn .line.on span{
+    width: 40px;
+}
+
+/* ---------------- 메인 ---------------- */
+/* home */
+#fullpage .home{
+    background:url("../images/sea-2755901_1920.jpg")no-repeat;
+    background-size: cover;
+    position: relative;
+}
+#fullpage .home .txt{
+    text-shadow: 2px 2px 1px gray;
+    color:#fff;
+}
+#fullpage .home h3{
+    font-size: 70px;
+    letter-spacing: 4px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 35%;
+    opacity: 0;
+    font-family: 'Patua One','Do Hyeon';
+}
+#fullpage .home h3.on{
+    animation:h3_ani 1s 0.5s ease forwards ;
+}
+@keyframes h3_ani{
+    0%{opacity: 0;top: 40%;}
+    100%{opacity: 1;top: 35%;}
+}
+#fullpage .home h4{
+    font-size: 25px;
+    letter-spacing: 4px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    opacity: 0;
+}
+#fullpage .home h4.on{
+    animation:h4_ani 1s 1s ease forwards ;
+}
+@keyframes h4_ani{
+    0%{opacity: 0;top: 55%;}
+    100%{opacity: 1;top: 50%;}
+}
+#fullpage .home .scroll{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    animation:scroll_ani 1s linear infinite alternate;
+}
+@keyframes scroll_ani{
+    0%{bottom: 0;}
+    100%{bottom: 20px;}
+}
+
+/* about */
+#fullpage .about{
+    letter-spacing: -1px;
+    font-family: 'Do Hyeon';
+}
+#fullpage .about .about_inner{
+    margin:50px auto 0;
+    width: 1000px;
+}
+#fullpage .about .about_inner h2{
+    text-align: center;
+    font-size: 3.5em;
+    color: #72726c;
+    margin-bottom: 100px;
+    opacity: 0;
+    position: relative;
+}
+#fullpage .about .about_inner h2.on{
+    animation: about_h2_ani 1s 0.5s ease forwards;
+}
+@keyframes about_h2_ani{
+    0%{opacity: 0;margin-left:-500px}
+    100%{opacity: 1;margin-left:0}
+}
+#fullpage .about .about_inner h2::before{
+    content: '';
+    width: 215px;
+    height: 20px;
+    background: #71c7d5;
+    position: absolute;
+    left: 37%;
+    transform: skew(-20deg);
+    bottom: 0;
+    z-index: -1;
+}
+#fullpage .about .about_inner .photo{
+    float: left;
+    opacity: 0;
+    width: 500px;
+    height: 600px;
+    background: url("../images/myphoto.jpg")no-repeat;
+    background-size: 500px 600px;
+}
+#fullpage .about .about_inner .photo.on{
+    animation: photo_ani 1s 1.5s ease forwards;
+}
+@keyframes photo_ani{
+    0%{opacity: 0;margin-left:-1000px}
+    100%{opacity: 1;margin-left:0}
+}
+#fullpage .about .about_inner .about_box{
+    overflow: hidden;
+    line-height: 26px;
+}
+#fullpage .about .about_inner .abount_me{
+    float: right;
+    opacity: 0;
+}
+#fullpage .about .about_inner .abount_me.on{
+    animation: about_me_ani 1s 2.5s ease forwards;
+}
+@keyframes about_me_ani{
+    0%{opacity: 0;padding-right:-1000px}
+    100%{opacity: 1;padding-right:200px}
+}
+#fullpage .about .about_inner .abount_me h3{
+    font-size: 30px;
+    font-weight: 500;
+    text-indent: 10px;
+    color: #72726c;
+    margin: 35px 0 10px 0;
+    position: relative;
+}
+#fullpage .about .about_inner .abount_me h3::before{
+    content: '';
+    width: 5px;
+    height: 25px;
+    background:#72726c ;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#fullpage .about .about_inner .abount_me p{
+    color:#777;
+    font-size: 20px;
+}
+
+/* web */
+#fullpage .web{
+    letter-spacing: -1px;
+    font-family: 'Do Hyeon'; 
+}
+#fullpage .web .web_inner{
+    margin:-340px auto 0;
+    width: 1000px;
+}
+#fullpage .web .web_inner h2{
+    text-align: center;
+    font-size: 3.5em;
+    color: #72726c;
+    margin-bottom: 50px;
+    opacity: 0;
+    position: relative;
+}
+#fullpage .web .web_inner h2.on{
+    animation: web_h2_ani 1s ease forwards;
+}
+@keyframes web_h2_ani{
+    0%{opacity: 0;margin-right:-500px}
+    100%{opacity: 1;margin-right:0}
+}
+#fullpage .web .web_inner h2::before{
+    content: '';
+    width: 215px;
+    height: 20px;
+    background: darkseagreen;
+    position: absolute;
+    right: 37%;
+    transform: skew(20deg);
+    bottom: 0;
+    z-index: -1;
+}
+
+/* contact */
+#fullpage .contact{
+    font-family: 'Do Hyeon'; 
+}
+#fullpage .contact .contact_inner{
+    margin:-40px auto 0;
+    width: 1000px;
+}
+#fullpage .contact .contact_inner h3{
+    letter-spacing: 2px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    color: #72726c;
+    margin-bottom: 50px;
+}
+#fullpage .contact .contact_inner p{
+    letter-spacing: 3px;
+    text-align: center;
+    font-size: 22px;
+    color: #72726c;
+    opacity: 0.9;
+    margin-bottom: 100px;
+}
+#fullpage .contact .contact_inner .contact_box{
+    letter-spacing: 3px;
+    text-align: center;
+}
+#fullpage .contact .contact_inner .contact_box li{
+    margin-bottom: 50px;
+}
+#fullpage .contact .contact_inner .contact_box li:last-child{
+    margin-bottom: 0;
+}
+#fullpage .contact .contact_inner .contact_box li img{
+    vertical-align: middle;
+}
+#fullpage .contact .contact_inner .contact_box li em{
+    display: block;
+    padding:20px 0 30px;
+}
+#fullpage .contact .contact_inner .contact_box li span{
+    display: block;
+    font-family: 'Roboto';
+    font-size: 14px;
+}
+#fullpage .contact .contact_inner .copyright{
+    font-family: 'Roboto';
+    font-size: 12px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+}
